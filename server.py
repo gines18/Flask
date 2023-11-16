@@ -24,9 +24,7 @@ def login():
 
 @app.route("/<usr>")
 def user(usr):
-    return f"<h1>{usr}</h1>"
+    return render_template("user.html", usr=usr)
     
-
-
 if __name__ == "__main__":
     app.run(debug=True)

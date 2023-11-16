@@ -1,0 +1,7 @@
+
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+{% block login %}
+<p>Hello, {{ usr }}</p>
+<button type="button" class="btn btn-dark" onclick="window.location='{{ url_for('home') }}'">Home page</button>
+{% endblock %}

@@ -1,7 +1,26 @@
 
 {% extends "base.html" %}
 {% block title %}Login Page{% endblock %}
+
 {% block login %}
 <p>Hello, {{ usr }}</p>
-<button type="button" class="btn btn-dark" onclick="window.location='{{ url_for('home') }}'">Home page</button>
+<script>    
+  function LogOut() {
+            
+            fetch('{{ url_for('logout') }}', {
+                method: 'GET', 
+            }).then(response => {
+                if (response.ok) {
+                  
+                    window.location.href = '{{ url_for('home') }}';
+                } else {
+                    console.error('Logout failed');
+                }
+            }).catch(error => {
+                console.error('Error during logout:', error);
+            });
+        }
+    </script>
+</script>
+<button type="button" classs ="btn btn-dark" onClick="LogOut()">Log out</button>
 {% endblock %}

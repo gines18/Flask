@@ -33,7 +33,7 @@ def login():
 def user():
     if "user" in session:
         user = session["user"]
-        return f"<h1>{user}</h1>"
+        return render_template("user.html", usr=user)
     else:
         return redirect(url_for("login"))
 

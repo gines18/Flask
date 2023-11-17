@@ -19,15 +19,17 @@ def test():
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        session.permanent = True
-        user = request.form["nm"]
-        session["user"] = user
-        return redirect(url_for("user"))
+        user = request.form["nm"].strip()
+        if user:
+            session.permanent = True
+            session["user"] = user
+            return redirect(url_for("user"))
+        else:
+            return render_template("login.html", error="Please enter a valid username")
     else:
         if "user" in session:
             return redirect(url_for("user"))
         return render_template("login.html")
-
 
 @app.route("/user")
 def user():

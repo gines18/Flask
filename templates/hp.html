@@ -2,5 +2,30 @@
 {% block title %}Login Page{% endblock %}
 
 {% block login %}
-<p>Hello, {{ usr }}</p>
+
+
+<script>
+
+function logout() {
+    fetch('{{ url_for('logout') }}', {
+        method: 'GET',
+    }).then(response => {
+        if (response.ok) {
+            window.location.href = '{{ url_for('home') }}';
+        } else {
+            console.error('Logout failed');
+        }
+    }).catch(error => {
+        console.error('Error during logout:', error);
+    });
+}
+
+
+
+</script>
+<div style="margin: 30px;">
+    <p>Hello, {{ usr }}!</p>
+    <button type="button" class="btn btn-dark" onclick="logout()">Log out</button>
+</div>
+
 {% endblock %}

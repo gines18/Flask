@@ -1,6 +1,6 @@
 # Flask application
 
-## This is a simple Flask web application with user authentication functionality. Users can log in and log out of the system.
+### This is a simple Flask web application with user authentication functionality. Users can log in and log out of the system.
 
 <img src="https://github.com/gines18/Flask/blob/main/img/Screenshot%202023-11-18%20at%2018.30.44.png"/>
 

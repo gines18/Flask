@@ -1,26 +1,30 @@
-
 {% extends "base.html" %}
-{% block title %}Login Page{% endblock %}
-
-{% block login %}
+ {% block title %}Login Page{% endblock %}
+  {% block login %}
 <p>Hello, {{ usr }}</p>
-<script>    
-  function LogOut() {
-            
-            fetch('{{ url_for('logout') }}', {
-                method: 'GET', 
-            }).then(response => {
-                if (response.ok) {
-                  
-                    window.location.href = '{{ url_for('home') }}';
-                } else {
-                    console.error('Logout failed');
-                }
-            }).catch(error => {
-                console.error('Error during logout:', error);
-            });
-        }
-    </script>
+<script>
+    function LogOut() {
+
+              fetch('{{ url_for('logout')}}', {
+                  method: 'GET',
+              }).then(response => {
+                  if (response.ok) {
+
+                      window.location.href = '{{ url_for('home') }}';
+                  } else {
+                      console.error('Logout failed');
+                  }
+              }).catch(error => {
+                  console.error('Error during logout:', error);
+              });
+          }
+
+
+              function GoHome() {
+      window.location.href = '{{ url_for('hp')}}';
+  }
 </script>
-<button type="button" classs ="btn btn-dark" onClick="LogOut()">Log out</button>
+
+<button type="button" class="btn btn-dark" onClick="LogOut()">Log out</button>
+<button type="button" class="btn btn-dark" onclick="GoHome()">Home page</button>
 {% endblock %}

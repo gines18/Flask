@@ -39,6 +39,10 @@ def user():
     else:
         return redirect(url_for("login"))
 
+@app.route("/hp")
+def hp():
+        user = session["user"]
+        return render_template("hp.html", usr=user)
 
 @app.route("/logout")
 def logout():
